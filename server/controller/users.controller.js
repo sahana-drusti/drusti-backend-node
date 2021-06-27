@@ -23,3 +23,15 @@ exports.create = (req, res) =>{
         });
     });
 }
+
+
+exports.findUser = (req, res) =>{
+    const email = req.query.email;
+    users.findOne({email:email}).then(data=>{
+        res.send(data);
+    }).catch(err =>{
+        res.status(500).send({
+            message: err.message ||"Some Error occured while fetching user data"
+        });
+    });
+}
