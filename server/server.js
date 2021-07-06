@@ -17,6 +17,7 @@ app.get('/',(req,res) =>{
 require('./routes/state.route.js')(app);
 require('./routes/district.route.js')(app);
 require('./routes/users.router')(app);
+require('./routes/address.route')(app);
 
 app.listen(3000, () =>{
     console.log('server listening to posrt 3000');
@@ -25,7 +26,8 @@ app.listen(3000, () =>{
 mongoose.Promise = global.Promise;
 
 mongoose.connect(dbconfig.url,{
-    useNewUrlParser:true
+    useNewUrlParser:true,
+    useUnifiedTopology:true
 }).then(() =>{
     console.log("successfully connected to mongoose");
 }).catch(err =>{
