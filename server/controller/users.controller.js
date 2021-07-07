@@ -35,3 +35,20 @@ exports.findUser = (req, res) =>{
         });
     });
 }
+
+exports.update = (req,res) =>{
+    const update = {
+        password: req.body.password
+    };
+
+    const filter = {
+        _id:req.query.userId
+    };
+    users.findOneAndUpdate(update,filter,{new: true, useFindAndModify: false}).then(data =>{
+        res.send(data);
+    }).catch(err =>{
+        res.status(500).send({
+            message: err.message || "Error while updating user"
+        })
+    })
+}
