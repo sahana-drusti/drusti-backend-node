@@ -1,7 +1,9 @@
 const address = require('../model/address');
 
 exports.create = (req,res) => {
-    if(!req.body.addressLine1 && !req.body.userId){
+    if((!req.body.addressLine1 || !req.body.addressLine2) && 
+    !req.body.userId && !req.body.taluk && !req.body.district
+    && !req.body.state && !req.body.taluk && !req.body.zipCode){
         return res.status(400).send({
             message: "mandatory field missing"
         });
@@ -16,6 +18,7 @@ exports.create = (req,res) => {
         state: req.body.state,
         country: req.body.country,
         status: req.body.status,
+        zipCode: req.body.zipCode
     });
 
     addressCreate.save()
@@ -50,6 +53,7 @@ exports.updateAddress = (req,res) => {
     if(req.body.taluk) update['taluk'] = req.body.taluk;
     if(req.body.district) update['district'] = req.body.district;
     if(req.body.country) update['country'] = req.body.country;
+    if(req.body.zipCode) update['zipCode'] = req.body.zipCode;
     
     const filter = {
         _id: req.body.addressId
@@ -65,7 +69,7 @@ exports.updateAddress = (req,res) => {
 }
 
 exports.delete = (req, res) =>{
-    address.findByIdAndDelete(req.body.addressId)
+    address.findByIdAndDelete(req.query.addressId)
     .then(data => res.send(data))
     .catch(err =>{
         res.status(500).send({

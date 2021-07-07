@@ -12,7 +12,8 @@ const addressSchema = mongoose.Schema({
     "email2": String,
     "landline": String,
     "phone1": String,
-    "phone2": String
+    "phone2": String,
+    "zipCode": String
 });
 
 module.exports = mongoose.model('Address',addressSchema);
