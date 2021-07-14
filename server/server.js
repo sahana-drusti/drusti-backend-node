@@ -19,6 +19,7 @@ require('./routes/district.route.js')(app);
 require('./routes/users.router')(app);
 require('./routes/address.route')(app);
 require('./routes/student.route')(app);
+require('./routes/faculty.route')(app);
 
 app.listen(3000, () =>{
     console.log('server listening to posrt 3000');
