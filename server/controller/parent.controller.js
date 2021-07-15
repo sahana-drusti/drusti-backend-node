@@ -3,9 +3,11 @@ const Parent = require('../model/parent');
 
 exports.create = async (req,res,next) =>{
    
-    if(!req.body.fatherName){
+    if(!req.body.fatherName || !req.body.motherName || !req.body.fOccupation
+        || !req.body.mOccupation || !req.body.phone1 || !req.body.email2
+        ){
         return res.status(400).send({
-            message: "mandatory field missing"
+            message: "mandatory field missing while inserting parent info"
         })
     }
     

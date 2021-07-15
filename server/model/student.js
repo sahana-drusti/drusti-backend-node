@@ -8,6 +8,6 @@ const studentSchema = mongoose.Schema({
     "gender": String,
     "class": String,
     "userId": String,
-    "parentId":String
+    "parentId":String,
 });
 module.exports = mongoose.model('Student', studentSchema);

@@ -13,7 +13,8 @@ const parentAddressSchema = mongoose.Schema({
     "landline": String,
     "phone1": String,
     "phone2": String,
-    "type": String
+    "type": String,
+    "zipCode": String
 })
 
 module.exports = mongoose.model('ParentAddress',parentAddressSchema)
