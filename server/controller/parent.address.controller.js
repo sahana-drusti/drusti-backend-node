@@ -3,7 +3,7 @@ const parentController = require('./parent.controller');
 
 exports.createCurrentAddress = (req, res, next) =>{
 
-    if(!req.body.addressLine || !req.body.addressLine2 || !req.body.taluk
+    if(!req.body.addressLine1 || !req.body.addressLine2 || !req.body.taluk
         || !req.body.district || !req.body.state || !req.body.country
         || !req.body.zipCode
         ){
@@ -34,9 +34,9 @@ exports.createCurrentAddress = (req, res, next) =>{
 
 exports.createPermanentAddress = (req, res, next) =>{
 
-    if(!req.body.addressLine || !req.body.addressLine2 || !req.body.taluk
-        || !req.body.district || !req.body.state || !req.body.country
-        || !req.body.zipCode
+    if(!req.body.pAddressLine1 || !req.body.pAddressLine2 || !req.body.pTaluk
+        || !req.body.pDistrict || !req.body.pState || !req.body.pCountry
+        || !req.body.pZipCode
         ){
         return res.status(400).send({
             message: "mandatory field missing while inserting parent address type P info"

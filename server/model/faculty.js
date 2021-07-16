@@ -4,7 +4,7 @@ const facultySchema = mongoose.Schema({
     "firstName": String,
     "lastName": String,
     "middleName": String,
-    "DOB": Date,
+    "DOB": String,
     "gender": String,
     "class": String,
     "userId": String,
