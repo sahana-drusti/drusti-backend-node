@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const parentAddressSchema = mongoose.Schema({
-    "parentId": String,
+    "phone1": String,
     "addressLine1": String,
     "addressLine2": String,
     "taluk":String,

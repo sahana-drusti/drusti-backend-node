@@ -21,7 +21,7 @@ exports.createCurrentAddress = (req, res, next) =>{
         country: req.body.country,
         status: req.body.status,
         zipCode: req.body.zipCode,
-        parentId: parentController.parentDetail,
+        phone1: req.body.phone1,
         type:"C"
     });
 
@@ -51,7 +51,7 @@ exports.createPermanentAddress = (req, res, next) =>{
         state: req.body.pState,
         country: req.body.pCountry,
         zipCode: req.body.pZipCode,
-        parentId: parentController.parentDetail,
+        phone1: req.body.phone1,
         type: "P"
     });
 

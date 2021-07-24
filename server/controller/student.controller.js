@@ -26,7 +26,7 @@ exports.create = async (req, res) => {
         DOB: req.body.dob,
         class: req.body.class,
         gender: req.body.gender,
-        parentId: parentController.parentDetail,
+        phone1: req.body.phone1,
         userId: req.body.userId,
         registerNumber: req.body.registerNumber
     })
