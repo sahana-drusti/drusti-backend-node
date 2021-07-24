@@ -27,12 +27,19 @@ exports.create = async (req, res) => {
         class: req.body.class,
         gender: req.body.gender,
         parentId: parentController.parentDetail,
-        userId: req.body.userId
-        
+        userId: req.body.userId,
+        registerNumber: req.body.registerNumber
     })
     await studentCreate.save()
     .then(data => res.send(data))
     .catch(err => res.send({message: err || "Error Creating Student"}));
 
     
+}
+
+exports.createMany =async (req,res) =>{
+    console.log(req.body.students);
+    await student.insertMany(req.body.students)
+    .then(data => res.send(data))
+    .catch(err => res.send({message: 'error inserting many students' }));
 }

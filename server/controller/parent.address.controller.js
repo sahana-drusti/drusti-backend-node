@@ -61,3 +61,10 @@ exports.createPermanentAddress = (req, res, next) =>{
     next();
 
 }
+
+exports.createMany =async (req,res) =>{
+    console.log(req.body.addresses);
+    await parentAddress.insertMany(req.body.addresses)
+    .then(data => res.send(data))
+    .catch(err => res.send({message: 'error inserting many addresses' }));
+}

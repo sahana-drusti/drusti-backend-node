@@ -9,5 +9,6 @@ const studentSchema = mongoose.Schema({
     "class": String,
     "userId": String,
     "parentId":String,
+    "registerNumber":String,
 });
 module.exports = mongoose.model('Student', studentSchema);
