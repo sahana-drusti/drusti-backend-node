@@ -5,6 +5,7 @@ const faculty = require('../model/faculty');
 
 exports.create = async (req, res, next) => {
     const facultyCreate = new faculty({
+        registerNumber: req.body.registerNumber,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         middleName: req.body.middleName,
@@ -13,7 +14,7 @@ exports.create = async (req, res, next) => {
         gender: req.body.gender,
         religion: req.body.religion,
         userId: req.body.userId,
-        
+        phone1:req.body.phone1   
     })
     await facultyCreate.save()
     .then(data => {
@@ -26,4 +27,10 @@ exports.create = async (req, res, next) => {
     next();
 
     
+}
+exports.createMany = (req,res) =>{
+    console.log(req.body.faculties);
+    faculty.insertMany(req.body.faculties)
+    .then(data => res.send(data))
+    .catch(err => res.send({message: 'error inserting many staffs' }));
 }
