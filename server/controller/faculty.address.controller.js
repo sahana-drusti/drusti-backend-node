@@ -24,3 +24,9 @@ exports.create = (req, res) =>{
     .catch(err => res.send({message: err || " Error while creating Parent Address" }));
 
 }
+exports.createMany = (req,res) =>{
+    console.log(req.body.addresses);
+    facultyAddress.insertMany(req.body.addresses)
+    .then(data => res.send(data))
+    .catch(err => res.send({message: 'error inserting many staff addresses' }));
+}

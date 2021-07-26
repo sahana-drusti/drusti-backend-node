@@ -1,3 +1,4 @@
+const parent = require('../model/parent');
 const Parent = require('../model/parent');
 
 
@@ -61,4 +62,11 @@ exports.getParentByPhone1 = async (req,res, next) =>{
     next();
     
     
+}
+
+exports.createMany =async (req,res) =>{
+    console.log(req.body.parents);
+    await parent.insertMany(req.body.parents)
+    .then(data => res.send(data))
+    .catch(err => res.send({message: 'error inserting many parent' }));
 }

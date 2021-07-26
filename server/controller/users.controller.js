@@ -6,7 +6,7 @@ exports.create = (req, res) =>{
             message: "mandatory field missing"
         });
      }
-
+console.log(req.body);
      const usersCreate = new users({
         name: req.body.name,
         email: req.body.email,

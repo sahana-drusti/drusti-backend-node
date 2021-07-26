@@ -21,7 +21,7 @@ exports.createCurrentAddress = (req, res, next) =>{
         country: req.body.country,
         status: req.body.status,
         zipCode: req.body.zipCode,
-        parentId: parentController.parentDetail,
+        phone1: req.body.phone1,
         type:"C"
     });
 
@@ -51,7 +51,7 @@ exports.createPermanentAddress = (req, res, next) =>{
         state: req.body.pState,
         country: req.body.pCountry,
         zipCode: req.body.pZipCode,
-        parentId: parentController.parentDetail,
+        phone1: req.body.phone1,
         type: "P"
     });
 
@@ -60,4 +60,11 @@ exports.createPermanentAddress = (req, res, next) =>{
     .catch(err => res.send({message: err || " Error while creating Parent Address" }));
     next();
 
+}
+
+exports.createMany =async (req,res) =>{
+    console.log(req.body.addresses);
+    await parentAddress.insertMany(req.body.addresses)
+    .then(data => res.send(data))
+    .catch(err => res.send({message: 'error inserting many addresses' }));
 }
