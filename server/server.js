@@ -20,13 +20,14 @@ require('./routes/users.router')(app);
 require('./routes/address.route')(app);
 require('./routes/student.route')(app);
 require('./routes/faculty.route')(app);
+require('./routes/parent.route')(app);
 
 app.listen(3000, () =>{
     console.log('server listening to posrt 3000');
 });
 
 mongoose.Promise = global.Promise;
-
+    
 mongoose.connect(dbconfig.url,{
     useNewUrlParser:true,
     useUnifiedTopology:true

@@ -54,6 +54,10 @@ exports.updateAddress = (req,res) => {
     if(req.body.district) update['district'] = req.body.district;
     if(req.body.country) update['country'] = req.body.country;
     if(req.body.zipCode) update['zipCode'] = req.body.zipCode;
+    if(req.body.phone1) update['phone1'] = req.body.phone1;
+    if(req.body.phone2) update['phone2'] = req.body.phone2;
+    if(req.body.email1) update['email1'] = req.body.email1;
+    if(req.body.email2) update['email2'] = req.body.email2;
     
     const filter = {
         _id: req.body.addressId

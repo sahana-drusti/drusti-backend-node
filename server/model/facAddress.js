@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const facultyAddressSchema = mongoose.Schema({
-    "facultyId": String,
     "addressLine1": String,
     "addressLine2": String,
     "taluk":String,
