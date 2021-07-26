@@ -1,5 +1,7 @@
 const facultyController = require('../controller/faculty.controller');
+const facultyAddressController = require('../controller/faculty.address.controller')
 
 module.exports = [
-    facultyController.create
+    facultyController.create,
+    facultyAddressController.createCurrentAddress
 ]
