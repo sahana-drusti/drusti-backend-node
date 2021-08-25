@@ -46,12 +46,12 @@ exports.createMany =async (req,res) =>{
 
 
 exports.getStudentsCount = (req,res) =>{
-    if(!req.body.userId){
+    if(!req.query.userId){
         return res.status(400).send({
             message: "mandatory parameter userId is missing in request body"
         })
     }
-    student.countDocuments({userId: req.body.userId})
+    student.countDocuments({userId: req.query.userId})
     .then(data =>{
         res.send({count: data})
     })
