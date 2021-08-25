@@ -43,3 +43,17 @@ exports.createMany =async (req,res) =>{
     .then(data => res.send(data))
     .catch(err => res.send({message: 'error inserting many students' }));
 }
+
+
+exports.getStudentsCount = (req,res) =>{
+    if(!req.body.userId){
+        return res.status(400).send({
+            message: "mandatory parameter userId is missing in request body"
+        })
+    }
+    student.countDocuments({userId: req.body.userId})
+    .then(data =>{
+        res.send({count: data})
+    })
+    .catch(err => res.send({message:'error while counting students'}));
+}
